@@ -99,7 +99,7 @@ class Hitbox extends MobileInputManager
 		}
 	}
 
-	private function createHint(X:Float, Y:Float, Width:Int, Height:Int, Color:Int = 0xFFFFFF):TouchButton
+	public function createHint(X:Float, Y:Float, Width:Int, Height:Int, Color:Int = 0xFFFFFF):TouchButton
 	{
 		var hint = new TouchButton(X, Y);
 		hint.statusAlphas = [];
@@ -154,7 +154,7 @@ class Hitbox extends MobileInputManager
 		return hint;
 	}
 
-	function createHintGraphic(Width:Int, Height:Int):FlxGraphic
+	private function createHintGraphic(Width:Int, Height:Int):FlxGraphic
 	{
 		var shape:Shape = new Shape();
 		shape.graphics.beginFill(0xFFFFFF);
