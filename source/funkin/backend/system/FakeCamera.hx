@@ -5,7 +5,7 @@ import flixel.graphics.frames.FlxFrame;
 import flixel.graphics.tile.FlxDrawTrianglesItem;
 import flixel.math.FlxMatrix;
 import flixel.math.FlxPoint;
-import mobile.flixel.system.FlxShader;
+import flixel.system.FlxAssets.FlxShader;
 import openfl.display.BitmapData;
 import openfl.display.BlendMode;
 import openfl.geom.ColorTransform;
