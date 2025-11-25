@@ -23,6 +23,11 @@ import lime.utils.ArrayBuffer;
 import lime.utils.ArrayBufferView.TypedArrayType;
 import lime.utils.ArrayBufferView;
 
+#if audio_stream_async
+import sys.thread.Thread;
+import sys.thread.Mutex;
+#end
+
 #if !lime_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
@@ -36,6 +41,7 @@ class NativeAudioSource {
 	public static var STREAM_BUFFER_SAMPLES:Int = 0x2000; // how much buffers will be generating every frequency (doesnt have to be pow of 2?).
 	public static var STREAM_MIN_BUFFERS:Int = 2; // how much buffers can a stream hold on minimum or starting.
 	public static var STREAM_MAX_BUFFERS:Int = 8; // how much limit of a buffers can be used for streamed audios, must be higher than minimum.
+	public static var STREAM_FLUSH_BUFFERS:Int = 3; // how much buffers can it play.
 	public static var STREAM_PROCESS_BUFFERS:Int = 2; // how much buffers can be processed in a frequency tick.
 	public static var STREAM_TIMER_CHECK_MS:Int = 100; // determines how milliseconds to update the buffers if available.
 	public static var MAX_POOL_BUFFERS:Int = 32; // how much buffers for the pool to hold.
@@ -111,7 +117,6 @@ class NativeAudioSource {
 	var dataLength:Int;
 	var duration:Float;
 
-	var streamTimer:Timer;
 	var completeTimer:Timer;
 	var source:ALSource;
 	var buffer:ALBuffer;
@@ -120,21 +125,33 @@ class NativeAudioSource {
 	var arrayType:TypedArrayType;
 	var loopPoints:Array<Int>; // In Samples
 
+	#if audio_stream_async
+	static var threadRunning:Bool = false;
+	static var streamSources:Array<NativeAudioSource> = [];
+	static var queuedStreamSources:Array<NativeAudioSource> = [];
+
+	static var streamHandlerTimer:Timer;
+	static var streamMutex:Mutex = new Mutex();
+	static var streamThread:Thread;
+
+	var streamRemove:Bool;
+	#else
+	var streamTimer:Timer;
+	#end
+
 	var bufferLength:Int; // Size in bytes for current streamed audio buffers.
 	var requestBuffers:Int;
 	var queuedBuffers:Int;
 	var streamLoops:Int;
 	var streamEnded:Bool;
 
-	var buffers:Array<ALBuffer>;
-	var unusedBuffers:Array<ALBuffer>;
-
 	// ORDERING IS CURRENT TO NEXT, STARTS FROM THE LENGTH OF THE ARRAYS
 	var bufferDatas:Array<ArrayBufferView>;
 	var bufferTimes:Array<Float>;
 	var bufferLengths:Array<Int>;
-	var bufferTemps:Array<ALBuffer>;
-	var buffersToQueue:Int = 0;
+
+	var buffers:Array<ALBuffer>;
+	var nextBuffer:Int = 0;
 
 	public function new(parent:AudioSource) {
 		this.parent = parent;
@@ -145,6 +162,11 @@ class NativeAudioSource {
 	}
 
 	public function dispose() {
+		#if audio_stream_async
+		streamMutex.acquire();
+		removeStream();
+		#end
+
 		stop();
 		disposed = true;
 
@@ -153,7 +175,9 @@ class NativeAudioSource {
 		anglesArray = null;
 
 		if (source != null) {
-			AL.sourcei(source, AL.BUFFER, AL.NONE);
+			if (streamed) AL.sourceUnqueueBuffers(source, AL.getSourcei(source, AL.BUFFERS_QUEUED));
+			else AL.sourcei(source, AL.BUFFER, AL.NONE);
+
 			AL.deleteSource(source);
 			source = null;
 		}
@@ -176,14 +200,13 @@ class NativeAudioSource {
 			bufferDatas = null;
 		}
 
-		bufferTemps = null;
-
 		completeTimer = null;
-		streamTimer = null;
+		#if !audio_stream_async streamTimer = null; #end
 
-		unusedBuffers = null;
 		bufferTimes = null;
 		bufferLengths = null;
+
+		#if audio_stream_async streamMutex.release(); #end
 	}
 
 	public function init() {
@@ -201,9 +224,18 @@ class NativeAudioSource {
 
 	public function resetBuffer() {
 		if (parent.buffer == null) return;
+
+		#if audio_stream_async
+		streamMutex.acquire();
+		removeStream();
+		#end
+
 		stop();
 
-		AL.sourcei(source, AL.BUFFER, AL.NONE);
+		if (streamed) AL.sourceUnqueueBuffers(source, AL.getSourcei(source, AL.BUFFERS_QUEUED));
+		else AL.sourcei(source, AL.BUFFER, AL.NONE);
+
+		#if audio_stream_async streamMutex.release(); #end
 
 		final audioBuffer = parent.buffer;
 		channels = audioBuffer.channels;
@@ -244,16 +276,12 @@ class NativeAudioSource {
 			final length = STREAM_BUFFER_SAMPLES * channels;
 			bufferLength = length * wordSize;
 
-			if (buffers == null) buffers = AL.genBuffers(STREAM_MAX_BUFFERS);
+			if (buffers == null) buffers = AL.genBuffers(STREAM_FLUSH_BUFFERS);
 			if (bufferDatas == null) {
-				unusedBuffers = [];
 				bufferDatas = [];
 				bufferTimes = [];
 				bufferLengths = [];
-				bufferTemps = [];
 			}
-			else
-				unusedBuffers.resize(0);
 
 			for (i in 0...STREAM_MAX_BUFFERS) {
 				bufferTimes[i] = 0.0;
@@ -360,7 +388,8 @@ class NativeAudioSource {
 	function readToBufferData(data:ArrayBufferView, currentPCM:Int64):Int {
 		var length = (Int64.ofInt(loopPoints[1]) - currentPCM) * channels * wordSize;
 		var n = length < bufferLength ? length.low : bufferLength, total = 0, result = 0, wasEOF = false;
-		while (total < bufferLength) {
+
+		try while (total < bufferLength) {
 			result = n > 0 ? streamRead(data.buffer, total, n, wordSize) : 0;
 
 			if (result == Vorbis.HOLE) continue;
@@ -378,6 +407,10 @@ class NativeAudioSource {
 				wasEOF = false;
 			}
 		}
+		catch (e:haxe.Exception) {
+			trace('NativeAudioSource readToBufferData Bug! error: ${e.message} | ${e.stack.toString()}, streamEnded: $streamEnded, total: $total, n: $n');
+			return result;
+		}
 
 		if (result < 0) {
 			trace('NativeAudioSource readToBufferData Bug! reading result is $result, streamEnded: $streamEnded, total: $total, n: $n');
@@ -386,105 +419,166 @@ class NativeAudioSource {
 		return total;
 	}
 
-	function fillBuffer(buffer:ALBuffer):Int {
-		var i = STREAM_MAX_BUFFERS - requestBuffers;
-		var data = bufferDatas[i], currentPCM = streamTell();
-
-		var decoded = readToBufferData(data, currentPCM);
-		if (decoded > 0) {
-			AL.bufferData(buffer, format, data, decoded, sampleRate);
-
-			var n = STREAM_MAX_BUFFERS - 1, j = i;
-			while (i < n) {
+	function fillBuffers(n:Int) {
+		final max = STREAM_MAX_BUFFERS - 1;
+		var i:Int, j:Int, data:ArrayBufferView, pcm:Int64, decoded:Int;
+		while (n-- > 0 && !streamEnded && (decoded = readToBufferData(data = bufferDatas[i = max - requestBuffers], pcm = streamTell())) > 0) {
+			j = i;
+			while (i < max) {
 				bufferDatas[i] = bufferDatas[++j];
 				bufferTimes[i] = bufferTimes[j];
 				bufferLengths[i] = bufferLengths[j];
 				i = j;
 			}
-			queuedBuffers = requestBuffers;
-			bufferDatas[n] = data;
-			bufferTimes[n] = getFloat(currentPCM) / sampleRate;
-			bufferLengths[n] = decoded;
+			bufferDatas[max] = data;
+			bufferTimes[max] = getFloat(pcm) / sampleRate;
+			bufferLengths[max] = decoded;
+			requestBuffers++;
 		}
-
-		return decoded;
 	}
 
-	inline function queueBuffer(buffer:ALBuffer) bufferTemps[buffersToQueue++] = buffer;
 	inline function flushBuffers() {
-		AL.sourceQueueBuffers(source, buffersToQueue, bufferTemps);
-		buffersToQueue = 0;
-	}
-
-	function skipBuffers(n:Int, fill:Int = 0) {
-		for (buffer in AL.sourceUnqueueBuffers(source, n)) {
-			if (!streamEnded && --fill > 0 && fillBuffer(buffer) > 0) queueBuffer(buffer);
-			else {
-				queuedBuffers = --requestBuffers;
-				unusedBuffers.push(buffer);
-			}
+		var i = STREAM_MAX_BUFFERS - (requestBuffers - queuedBuffers);
+		while (queuedBuffers < STREAM_FLUSH_BUFFERS && queuedBuffers < requestBuffers) {
+			AL.bufferData(buffers[nextBuffer], format, bufferDatas[i], bufferLengths[i], sampleRate);
+			AL.sourceQueueBuffer(source, buffers[nextBuffer]);
+			if (++nextBuffer == STREAM_FLUSH_BUFFERS) nextBuffer = 0;
+			queuedBuffers++;
+			i++;
 		}
 	}
 
-	function fillBuffers(n:Int) {
-		var buffer:ALBuffer;
-		while (n-- > 0 && queuedBuffers < STREAM_MAX_BUFFERS && !streamEnded) {
-			if ((buffer = unusedBuffers.pop()) != null) {
-				requestBuffers++;
-				if (fillBuffer(buffer) > 0) queueBuffer(buffer);
-				else {
-					requestBuffers--;
-					unusedBuffers.push(buffer);
-				}
-			}
-			else if (fillBuffer(buffer = buffers[requestBuffers++]) > 0) queueBuffer(buffer);
-			else requestBuffers--;
-		}
-	}
-
-	function streamRun() {
-		if (source == null || parent.buffer == null || parent.buffer.__srcVorbisFile == null || !streamed || !playing)
-			return streamTimer.stop();
-
-		final queued = AL.getSourcei(source, AL.BUFFERS_QUEUED);
-		skipBuffers(AL.getSourcei(source, AL.BUFFERS_PROCESSED), STREAM_PROCESS_BUFFERS + (queued < STREAM_MIN_BUFFERS ? STREAM_MIN_BUFFERS - queued : 0));
-		fillBuffers(STREAM_PROCESS_BUFFERS - buffersToQueue);
-		flushBuffers();
-
-		if (AL.getSourcei(source, AL.SOURCE_STATE) == AL.STOPPED) {
-			AL.sourcePlay(source);
-			updateCompleteTimer();
-		}
+	inline function skipBuffers(n:Int) {
+		queuedBuffers -= (n = AL.sourceUnqueueBuffers(source, n).length);
+		requestBuffers -= n;
 	}
 
 	function snapBuffersToTime(time:Float, force:Bool) {
 		if (source == null || parent.buffer == null || parent.buffer.__srcVorbisFile == null) return;
 
+		#if audio_stream_async streamMutex.acquire(); #end
+
 		final sec = time / 1000;
 		if (!force) {
 			var bufferTime:Float;
-			for (i in (STREAM_MAX_BUFFERS - queuedBuffers)...STREAM_MAX_BUFFERS)
+			for (i in (STREAM_MAX_BUFFERS - requestBuffers)...(STREAM_MAX_BUFFERS - STREAM_MIN_BUFFERS))
 				if (sec >= (bufferTime = bufferTimes[i]) && sec < bufferTime + (bufferLengths[i] / wordSize / channels / sampleRate))
 			{
-				skipBuffers(i - (STREAM_MAX_BUFFERS - queuedBuffers), STREAM_MIN_BUFFERS - STREAM_MAX_BUFFERS + i);
+				skipBuffers(i - STREAM_MAX_BUFFERS + requestBuffers);
 				AL.sourcei(source, AL.SAMPLE_OFFSET, Math.floor((sec - bufferTime) * sampleRate));
-				return flushBuffers();
+				#if audio_stream_async streamMutex.release(); #end
+				return;
 			}
 		}
 
 		AL.sourceUnqueueBuffers(source, AL.getSourcei(source, AL.BUFFERS_QUEUED));
 
 		streamEnded = false;
-		unusedBuffers.resize(0);
 		streamSeek(Int64.fromFloat(sec * sampleRate));
 
-		buffersToQueue = streamLoops = 0;
-		for (i in 0...(requestBuffers = queuedBuffers = STREAM_MIN_BUFFERS)) {
-			if (!streamEnded && fillBuffer(buffers[i]) > 0) queueBuffer(buffers[i]);
-			else queuedBuffers = --requestBuffers;
-		}
+		requestBuffers = queuedBuffers = streamLoops = nextBuffer = 0;
+		fillBuffers(STREAM_MIN_BUFFERS);
 		flushBuffers();
+		#if audio_stream_async streamMutex.release(); #end
 	}
+
+	#if audio_stream_async
+	static function streamThreadRun() {
+		var i:Int, source:NativeAudioSource, process:Int, v:Int;
+
+		while ((i = Thread.readMessage(true)) != 0) {
+			streamMutex.acquire();
+			while (i-- > 0) {
+				if ((source = streamSources[i]).streamRemove) continue;
+				else if (source.parent.buffer == null) {
+					source.stopStream();
+					continue;
+				}
+
+				process = source.requestBuffers < STREAM_MIN_BUFFERS ? STREAM_MIN_BUFFERS - source.requestBuffers : 0;
+				process = STREAM_PROCESS_BUFFERS > process ? STREAM_PROCESS_BUFFERS : process;
+				if ((process = (v = STREAM_MAX_BUFFERS - source.requestBuffers) > process ? process : v) > 0) source.fillBuffers(process);
+			}
+			streamMutex.release();
+		}
+
+		threadRunning = false;
+	}
+
+	static function streamHandlerRun() {
+		if (!streamMutex.tryAcquire()) return;
+
+		var i = queuedStreamSources.length, source:NativeAudioSource;
+		while (i-- > 0) streamSources.push(queuedStreamSources[i]);
+		queuedStreamSources.resize(0);
+
+		i = streamSources.length;
+		while (i-- > 0) {
+			if ((source = streamSources[i]).streamRemove || source.source == null)
+				source.removeStream();
+			else {
+				source.skipBuffers(AL.getSourcei(source.source, AL.BUFFERS_PROCESSED));
+				source.flushBuffers();
+
+				if (AL.getSourcei(source.source, AL.SOURCE_STATE) == AL.STOPPED) {
+					AL.sourcePlay(source.source);
+					source.updateCompleteTimer();
+				}
+				if (source.streamEnded) source.removeStream();
+			}
+		}
+
+		streamMutex.release();
+
+		if (streamSources.length == 0) streamHandlerTimer.stop();
+		else if (threadRunning || (threadRunning = (streamThread = Thread.create(streamThreadRun)) != null))
+			streamThread.sendMessage(streamSources.length);
+	}
+
+	function removeStream() {
+		streamRemove = false;
+		queuedStreamSources.remove(this);
+		streamSources.remove(this);
+	}
+
+	function stopStream() {
+		streamRemove = true;
+		queuedStreamSources.remove(this);
+	}
+
+	function resetStream() {
+		streamRemove = false;
+		if (!queuedStreamSources.contains(this) && !streamSources.contains(this)) {
+			queuedStreamSources.push(this);
+			if (streamHandlerTimer == null || !streamHandlerTimer.mRunning)
+				streamHandlerTimer = resetTimer(streamHandlerTimer, STREAM_TIMER_CHECK_MS, streamHandlerRun);
+		}
+	}
+	#else
+	function streamRun() {
+		if (source == null || parent.buffer == null || parent.buffer.__srcVorbisFile == null)
+			return streamTimer.stop();
+
+		skipBuffers(AL.getSourcei(source, AL.BUFFERS_PROCESSED));
+
+		var process = requestBuffers < STREAM_MIN_BUFFERS ? STREAM_MIN_BUFFERS - requestBuffers : 0, v = STREAM_MAX_BUFFERS - requestBuffers;
+		process = STREAM_PROCESS_BUFFERS > process ? STREAM_PROCESS_BUFFERS : process;
+		if ((process = v > process ? process : v) > 0) fillBuffers(process);
+		flushBuffers();
+
+		if (AL.getSourcei(source, AL.SOURCE_STATE) == AL.STOPPED) {
+			AL.sourcePlay(source);
+			updateCompleteTimer();
+		}
+		if (streamEnded) streamTimer.stop();
+	}
+
+	function stopStream() if (streamTimer != null) streamTimer.stop();
+
+	function resetStream()
+		if (streamTimer == null || !streamTimer.mRunning)
+			streamTimer = resetTimer(streamTimer, STREAM_TIMER_CHECK_MS, streamRun);
+	#end
 
 	function timer_onRun() {
 		final pitch = getPitch();
@@ -531,11 +625,6 @@ class NativeAudioSource {
 			completeTimer.stop();
 	}
 
-	function resetStreamTimer() {
-		if (!streamEnded && (streamTimer == null || !streamTimer.mRunning))
-			streamTimer = resetTimer(streamTimer, STREAM_TIMER_CHECK_MS, streamRun);
-	}
-
 	public function play() {
 		if (playing || disposed) return;
 		final time = completed ? 0 : getCurrentTime();
@@ -547,8 +636,8 @@ class NativeAudioSource {
 		if (!disposed) AL.sourcePause(source);
 		lastTime = getCurrentTime();
 		playing = false;
+		stopStream();
 		if (completeTimer != null) completeTimer.stop();
-		if (streamTimer != null) streamTimer.stop();
 	}
 
 	public function stop() {
@@ -556,8 +645,8 @@ class NativeAudioSource {
 		lastTime = 0;
 		streamLoops = 0;
 		playing = false;
+		stopStream();
 		if (completeTimer != null) completeTimer.stop();
-		if (streamTimer != null) streamTimer.stop();
 	}
 
 	public function complete() {
@@ -571,14 +660,14 @@ class NativeAudioSource {
 		else if (completed) return getLength();
 		else if (!playing) return lastTime - parent.offset;
 
-		var time = AL.getSourcef(source, AL.SAMPLE_OFFSET) / sampleRate;
+		var time = AL.getSourcef(source, AL.SEC_OFFSET);
 		if (streamed) {
 			if (playing && streamEnded && AL.getSourcei(source, AL.SOURCE_STATE) == AL.STOPPED) {
 				complete();
 				return getLength();
 			}
 			else if (bufferTimes != null)
-				time += bufferTimes[STREAM_MAX_BUFFERS - queuedBuffers];
+				time += bufferTimes[STREAM_MAX_BUFFERS - requestBuffers];
 		}
 		time *= 1000;
 
@@ -594,7 +683,7 @@ class NativeAudioSource {
 		value = Math.isFinite(value) ? Math.max(Math.min(value + parent.offset, length), parent.offset) : parent.offset;
 
 		if (streamed) AL.sourceStop(source);
-		else AL.sourcef(source, AL.SAMPLE_OFFSET, value / 1000 * sampleRate);
+		else AL.sourcef(source, AL.SEC_OFFSET, value / 1000);
 
 		final timeRemaining = (length - value) / getPitch();
 		if (playing) {
@@ -603,17 +692,18 @@ class NativeAudioSource {
 				completed = false;
 				if (streamed) {
 					snapBuffersToTime(value, false);
-					resetStreamTimer();
+					if (!streamEnded) resetStream();
 				}
 				if (AL.getSourcei(source, AL.SOURCE_STATE) != AL.PLAYING) AL.sourcePlay(source);
+				completeTimer = resetTimer(completeTimer, timeRemaining, timer_onRun);
 			}
 		}
 		else {
 			completed = timeRemaining < 8;
 			lastTime = value;
+			if (completeTimer != null) completeTimer.stop();
 		}
 
-		updateCompleteTimer();
 		return value;
 	}
 
