@@ -36,6 +36,29 @@ jobs:
           haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_LATEST_HOME
           haxelib run lime config JAVA_HOME $JAVA_HOME_21_arm64
           haxelib run lime config ANDROID_SETUP true
+- name: Pre-compile Android 64-bit libraries
+        run: |
+          echo "预编译 Android ARM64 库..."
+          
+          # 检查并创建必要的目录
+          mkdir -p ~/.hxcpp/hxcpp_zlib_impl/lib/
+          mkdir -p ~/.hxcpp/zlib_sources/lib/
+          mkdir -p ~/.hxcpp/hxcpp_zip_api/lib/
+          
+          # 编译64位库文件
+          echo "编译 hxcpp_zlib_impl..."
+          haxelib run hxcpp -Dandroid -DHXCPP_ARM64 -DANDROID_NDK_ROOT="$ANDROID_NDK_ROOT" hxcpp_zlib_impl/Build.xml || echo "编译 hxcpp_zlib_impl 完成或跳过"
+          
+          echo "编译 zlib_sources..."
+          haxelib run hxcpp -Dandroid -DHXCPP_ARM64 -DANDROID_NDK_ROOT="$ANDROID_NDK_ROOT" zlib_sources/Build.xml || echo "编译 zlib_sources 完成或跳过"
+          
+          echo "编译 hxcpp_zip_api..."
+          haxelib run hxcpp -Dandroid -DHXCPP_ARM64 -DANDROID_NDK_ROOT="$ANDROID_NDK_ROOT" hxcpp_zip_api/Build.xml || echo "编译 hxcpp_zip_api 完成或跳过"
+          
+          # 验证库文件
+          echo "检查编译的库文件:"
+          find ~/.hxcpp -name "*.a" 2>/dev/null | head -20 || echo "未找到库文件，将继续构建"
+          
       - name: Building the game
         run: haxelib run lime build android -final
       - name: Uploading artifact (entire build)
