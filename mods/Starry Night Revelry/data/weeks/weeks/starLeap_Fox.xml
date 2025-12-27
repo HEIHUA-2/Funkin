@@ -1,0 +1,7 @@
+<!DOCTYPE codename-engine-week>
+<week name="Some of the things that happen in the Arctic..." chars="starLeap_Fox,bf,none" sprite="StarLeapFox">
+	<song>arctic</song>
+	<song>blizzard-eve</song>
+	<song>ice-and-burning</song>
+	<difficulty name="Hard"/>
+</week>

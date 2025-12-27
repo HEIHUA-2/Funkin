@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character y="375" sprite="starjump" camy="-175" icon="starLeapFox_V7" color="#A7F8FF" holdTime="8">
+	<anim name="idle" anim="0" x="100" y="225" fps="12" loop="false" indices="1,2,3,4,5,6,7,8,9,10,11,12"/>
+	<anim name="singUP" anim="0" x="101" y="224" fps="12" loop="false" indices="14,15,16,17,18,19,20,21"/>
+	<anim name="singDOWN" anim="0" x="103" y="227" fps="12" loop="false" indices="24,25,26,27,28,29,30,31"/>
+	<anim name="singLEFT" anim="0" x="102" y="241" fps="12" loop="false" indices="34,35,36,37,38,39,40,41"/>
+	<anim name="singRIGHT" anim="0" x="98" y="226" fps="12" loop="false" indices="44,45,46,47,48,49,50,51"/>
+</character>

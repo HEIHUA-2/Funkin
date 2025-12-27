@@ -1,0 +1,25 @@
+<!DOCTYPE codename-mod-options>
+<menu name="Starry Options" desc="Starry Night Revelry Mod Settings">
+	<menu name="game" desc="Adjust your game">
+		<checkbox id="starry_middle_scroll" name="Middle Scroll" desc="Forces all notes to spawn at screen center."/>
+	</menu>
+	<menu name="difficulty" desc="Adjust your game difficulty">
+		<checkbox id="starry_hurt_note" name="Hurt Note" desc="Disable all notes in the game that will be penalized when pressed."/>
+	</menu>
+	<menu name="shaders" desc="Shader On/Off">
+		<checkbox id="starry_bloom" name="bloom" desc="Disable Bloom Shader (Performance Impact: Medium) ! If GPU performance is insufficient, prioritize disabling this feature as its visual impact is minimal. !"/>
+		<checkbox id="starry_vcrshader" name="vcr" desc="Disable VCR Shader (Performance Impact: Low)"/>
+		<checkbox id="note_starry_vcrshader" name="note_vcr" desc="Disable VCR Shader on Note (Performance Impact: Low)"/>
+		<checkbox id="starry_texture_shader" name="Texture" desc="Disable Texture Shaders (Performance Impact: very low)"/>
+		<checkbox id="starry_lightEfficiency" name="light Efficiencyture" desc="Disable Texture Shaders (Performance Impact: very low)"/>
+		<checkbox id="starry_MirrorRepeatEffect" name="MirrorRepeatEffect" desc="Disable Bloom Shader (Performance Impact: Low)"/>
+	</menu>
+	<menu name="Background" desc="Adjust Background Quality">
+		<number id="starry_high_quality_particle_amount" name="Particle Amount" desc="Adjusting this value can change the multiplier of particles that appear during the game (to reduce CPU usage)." min="0.05" max="10" change="0.05"/>
+		<checkbox id="starry_high_quality_particle" name="HQ Particles" desc="Improve snowflake motion curves on the field (Warning! This will increase CPU load!)"/>
+	</menu>
+	<menu name="events" desc="events...">
+		<checkbox id="starry_modchart" name="modchart" desc="If you experience severe intermittent stuttering, try disabling this setting."/>
+		<number id="starry_modchart_refresh_rate" name="modchart FPS" desc="Reducing this value mitigates intermittent stuttering caused by modcharts during gameplay." min="10" max="1000" change="10"/>
+	</menu>
+</menu>

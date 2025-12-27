@@ -1,0 +1,29 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="0.75" folder="stages/Snow">
+	<sprite name="sky" x="-800" y="-275" sprite="sky" zoomfactor="0" scroll="0" scale="2">
+	</sprite>
+
+	<sprite name="Sunlight" x="-800" y="-275" sprite="Sunlight" zoomfactor="0" scroll="0" scale="2">
+	</sprite>
+	<sprite name="Sun" x="-800" y="-275" sprite="Sun" zoomfactor="0" scroll="0">
+	</sprite>
+
+	<sprite name="Mountain" x="-800" y="-275" sprite="Mountain" zoomfactor="0.1" scroll="0.1">
+	</sprite>
+	<sprite name="Lake_Surface" x="-800" y="-275" sprite="Lake_Surface" zoomfactor="0.1" scroll="0.1">
+	</sprite>
+
+	<sprite name="Snow" x="-800" y="-325" sprite="Snow"/>
+
+
+	<ratings x="400" y="300"/>
+
+	<dad x="-240" y="-100"/>
+	<boyfriend x="740" y="-75"/>
+
+
+	<sprite name="Light_2" x="-800" y="-275" sprite="Light_2" zoomfactor="0" scroll="0" scale="2">
+	</sprite>
+	<sprite name="Light" x="-800" y="-275" sprite="Light" zoomfactor="0" scroll="0" scale="2">
+	</sprite>
+</stage>

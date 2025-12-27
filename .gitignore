@@ -7,10 +7,8 @@ latest/*
 .haxelib/
 pages/
 docs/doc.xml
-mods/*
 addons/*
 !mods/readme.txt
-addons/*
 !addons/readme.txt
 dev-libs/
 .DS_Store
