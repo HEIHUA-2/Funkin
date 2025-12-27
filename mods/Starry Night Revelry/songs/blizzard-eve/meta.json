@@ -1,0 +1,13 @@
+{
+	"opponentModeAllowed": true,
+	"icon": "starLeapFox_V7_F",
+	"customValues": {},
+	"color": "#a7f8ff",
+	"name": "blizzard-eve",
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "blizzard-eve",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"bpm": 165
+}
