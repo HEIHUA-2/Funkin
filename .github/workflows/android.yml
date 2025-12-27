@@ -9,63 +9,151 @@ jobs:
     name: Android Build
     permissions: write-all
     runs-on: macos-15
+    env:
+      HXCPP_COMPILE_CACHE: /Users/runner/.hxcpp
+      HXCPP_ANDROID_ARCH: arm64
     steps:
       - name: Pulling the new commit
         uses: actions/checkout@v4
+        
       - name: Setting up Haxe
         uses: krdlab/setup-haxe@v2
         with:
           haxe-version: 4.3.7
-      - name: Restore existing build cache for faster compilation
+          
+      - name: Restore existing build cache
         uses: actions/cache@v4.2.3
         with:
-          # not caching the bin folder to prevent asset duplication and stuff like that
-          key: cache-build-android
+          key: cache-build-android-${{ runner.os }}-${{ hashFiles('**/project.xml', '**/*.hxml') }}
           path: |
             .haxelib/
             export/release/android/haxe/
             export/release/android/obj/
-      - run: |
-          echo "HXCPP_COMPILE_CACHE=~/.hxcpp" >> $GITHUB_ENV
+            ~/.hxcpp/
+            ~/.lime/
+            
       - name: Installing/Updating libraries
         run: |
           haxe -cp commandline -D analyzer-optimize --run Main setup -s
-      - name: Configuring Android
-        run: |
-          haxelib run lime config ANDROID_SDK $ANDROID_HOME
-          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_LATEST_HOME
-          haxelib run lime config JAVA_HOME $JAVA_HOME_21_arm64
-          haxelib run lime config ANDROID_SETUP true
-      - name: Pre-compile Android 64-bit libraries
-        run: |
-          echo "预编译 Android ARM64 库..."
           
-          # 检查并创建必要的目录
+      - name: Check and prepare hxcpp directories
+        run: |
+          echo "检查 hxcpp 安装..."
+          # 查找 hxcpp 的实际安装路径
+          HXCPP_PATH=$(haxelib path hxcpp | head -1)
+          echo "hxcpp 路径: $HXCPP_PATH"
+          
+          # 检查 hxcpp 目录结构
+          echo "hxcpp 目录内容:"
+          ls -la "$HXCPP_PATH" || true
+          
+          # 创建必要的 hxcpp 缓存目录
           mkdir -p ~/.hxcpp/hxcpp_zlib_impl/lib/
           mkdir -p ~/.hxcpp/zlib_sources/lib/
           mkdir -p ~/.hxcpp/hxcpp_zip_api/lib/
           
-          # 编译64位库文件
-          echo "编译 hxcpp_zlib_impl..."
-          haxelib run hxcpp -Dandroid -DHXCPP_ARM64 -DANDROID_NDK_ROOT="$ANDROID_NDK_ROOT" hxcpp_zlib_impl/Build.xml || echo "编译 hxcpp_zlib_impl 完成或跳过"
+      - name: Building with 64-bit only configuration
+        run: |
+          echo "开始构建 Android 64位版本..."
           
-          echo "编译 zlib_sources..."
-          haxelib run hxcpp -Dandroid -DHXCPP_ARM64 -DANDROID_NDK_ROOT="$ANDROID_NDK_ROOT" zlib_sources/Build.xml || echo "编译 zlib_sources 完成或跳过"
+          # 设置环境变量
+          export HXCPP_VERBOSE=1
+          export HXCPP_COMPILE_THREADS=2
           
-          echo "编译 hxcpp_zip_api..."
-          haxelib run hxcpp -Dandroid -DHXCPP_ARM64 -DANDROID_NDK_ROOT="$ANDROID_NDK_ROOT" hxcpp_zip_api/Build.xml || echo "编译 hxcpp_zip_api 完成或跳过"
+          # 方法1：直接使用 lime 构建（它会自动处理依赖）
+          haxelib run lime build android -final -Dandroid -DHXCPP_ARM64
           
-          # 验证库文件
-          echo "检查编译的库文件:"
-          find ~/.hxcpp -name "*.a" 2>/dev/null | head -20 || echo "未找到库文件，将继续构建"
-      - name: Building the game
-        run: haxelib run lime build android -final
-      - name: Uploading artifact (entire build)
+          # 如果上述失败，尝试方法2：先重建 hxcpp
+          # haxelib run lime rebuild hxcpp -Dandroid -DHXCPP_ARM64
+          # haxelib run lime build android -final
+          
+      - name: Fallback build if main method fails
+        if: failure()
+        run: |
+          echo "主构建方法失败，尝试备用方法..."
+          
+          # 清理并重新开始
+          haxelib run lime clean android
+          
+          # 创建临时 project.xml 覆盖文件来强制 64位
+          if [ -f "project.xml" ]; then
+            echo "备份原 project.xml"
+            cp project.xml project.xml.backup
+            
+            # 修改 project.xml 添加 64位配置
+            cat > project_android_64bit.xml << 'EOF'
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+  <!-- 你的项目配置 -->
+  <meta title="Your Game" package="com.example.game" version="1.0.0" />
+  <app main="Main" path="Export" file="Game" />
+  
+  <!-- Android 特定配置 -->
+  <android>
+    <!-- 只编译 arm64-v8a -->
+    <architecture>arm64</architecture>
+    
+    <!-- 移除其他架构 -->
+    <architecture remove="armeabi-v7a" />
+    <architecture remove="x86" />
+    <architecture remove="x86_64" />
+    
+    <!-- SDK 设置 -->
+    <sdk target-sdk-version="33" min-sdk-version="21" />
+    
+    <!-- 权限（根据需要调整） -->
+    <permission name="android.permission.INTERNET" />
+    <permission name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <permission name="android.permission.READ_EXTERNAL_STORAGE" />
+    <permission name="android.permission.VIBRATE" />
+  </android>
+  
+  <!-- 源路径 -->
+  <source path="Source" />
+  
+  <!-- Haxelib 依赖 -->
+  <haxelib name="lime" />
+  <haxelib name="openfl" />
+  <!-- 添加其他依赖 -->
+</project>
+EOF
+            
+            # 使用覆盖的配置构建
+            haxelib run lime build android -final -xml project_android_64bit.xml
+          else
+            echo "未找到 project.xml，尝试直接构建"
+            haxelib run lime build android -final
+          fi
+          
+      - name: Debug if build fails
+        if: failure()
+        run: |
+          echo "=== 构建失败调试信息 ==="
+          echo "检查 .haxelib 目录:"
+          ls -la .haxelib/ || echo "无 .haxelib 目录"
+          
+          echo "检查 hxcpp 缓存:"
+          find ~/.hxcpp -name "*.a" -type f 2>/dev/null | head -20 || echo "无 .a 文件"
+          
+          echo "检查编译输出:"
+          find export -name "*.log" -type f 2>/dev/null | head -5
+          
+          echo "尝试手动编译测试:"
+          # 尝试编译一个简单的测试
+          haxe -version
+          haxelib list | head -20
+          
+      - name: Uploading artifact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: Codename Engine Android
-          path: export/release/android/bin/app/build/outputs/apk/release/*.apk
-      - name: Clearing already existing cache
+          name: Codename-Engine-Android-ARM64
+          path: |
+            export/release/android/bin/app/build/outputs/apk/release/*.apk
+            export/release/android/bin/app/build/outputs/bundle/release/*.aab
+            
+      - name: Clearing old cache
+        if: always()
         uses: actions/github-script@v6
         with:
           script: |
@@ -74,7 +162,7 @@ jobs:
               repo: context.repo.repo,
             })
             for (const cache of caches.data.actions_caches) {
-              if (cache.key == "cache-build-android") {
+              if (cache.key.startsWith("cache-build-android")) {
                 console.log('Clearing ' + cache.key + '...')
                 await github.rest.actions.deleteActionsCacheById({
                   owner: context.repo.owner,
@@ -84,12 +172,15 @@ jobs:
                 console.log("Cache cleared.")
               }
             }
+            
       - name: Uploading new cache
+        if: always()
         uses: actions/cache@v4.2.3
         with:
-          # caching again since for some reason it doesnt work with the first post cache shit
-          key: cache-build-android
+          key: cache-build-android-${{ runner.os }}-${{ hashFiles('**/project.xml', '**/*.hxml') }}
           path: |
             .haxelib/
             export/release/android/haxe/
             export/release/android/obj/
+            ~/.hxcpp/
+            ~/.lime/
