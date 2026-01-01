@@ -18,7 +18,7 @@ var format_yellow = new FlxTextFormat(0xFFFF44, null, null, 0xff555522);
 function create()
 {
 	disclaimer.font = Paths.font('KeinannMaruPOP.woff');
-	@:privateAccess disclaimer._defaultFormat.leading = -10 * multiplying;
+	@:privateAccess disclaimer._defaultFormat.leading = #if mobile 10 #else -10 #end * multiplying;
 
 	titleAlphabet.destroy();
 }
