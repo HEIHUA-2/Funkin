@@ -1,0 +1,916 @@
+{"frames": [
+
+{
+	"filename": "d0000.png",
+	"frame": {"x":327,"y":0,"w":327,"h":439},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":114,"y":151,"w":327,"h":439},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0001.png",
+	"frame": {"x":655,"y":0,"w":324,"h":440},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":116,"y":150,"w":324,"h":440},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0002.png",
+	"frame": {"x":980,"y":0,"w":323,"h":440},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":150,"w":323,"h":440},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0003.png",
+	"frame": {"x":1304,"y":0,"w":323,"h":441},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":149,"w":323,"h":441},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0004.png",
+	"frame": {"x":1628,"y":0,"w":323,"h":441},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":149,"w":323,"h":441},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0005.png",
+	"frame": {"x":1952,"y":0,"w":323,"h":442},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":148,"w":323,"h":442},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0006.png",
+	"frame": {"x":1952,"y":0,"w":323,"h":442},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":148,"w":323,"h":442},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0007.png",
+	"frame": {"x":1952,"y":0,"w":323,"h":442},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":148,"w":323,"h":442},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0008.png",
+	"frame": {"x":2276,"y":0,"w":323,"h":442},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":148,"w":323,"h":442},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0009.png",
+	"frame": {"x":2600,"y":0,"w":315,"h":451},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":121,"y":141,"w":315,"h":451},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "d0010.png",
+	"frame": {"x":2916,"y":0,"w":314,"h":452},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":121,"y":140,"w":314,"h":452},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0000.png",
+	"frame": {"x":5396,"y":925,"w":401,"h":473},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":119,"w":401,"h":473},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0001.png",
+	"frame": {"x":5798,"y":927,"w":423,"h":475},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":95,"y":116,"w":423,"h":475},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0002.png",
+	"frame": {"x":6222,"y":931,"w":426,"h":476},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":116,"w":426,"h":476},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0003.png",
+	"frame": {"x":344,"y":1372,"w":425,"h":476},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":116,"w":425,"h":476},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0004.png",
+	"frame": {"x":770,"y":1374,"w":426,"h":476},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":116,"w":426,"h":476},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0005.png",
+	"frame": {"x":1197,"y":1374,"w":426,"h":476},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":116,"w":426,"h":476},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0006.png",
+	"frame": {"x":1624,"y":1376,"w":426,"h":476},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":116,"w":426,"h":476},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0007.png",
+	"frame": {"x":1624,"y":1376,"w":426,"h":476},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":116,"w":426,"h":476},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0008.png",
+	"frame": {"x":1624,"y":1376,"w":426,"h":476},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":116,"w":426,"h":476},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0009.png",
+	"frame": {"x":1624,"y":1376,"w":426,"h":476},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":116,"w":426,"h":476},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0010.png",
+	"frame": {"x":2400,"y":1386,"w":426,"h":476},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":116,"w":426,"h":476},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "dodge0011.png",
+	"frame": {"x":1726,"y":443,"w":420,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":87,"y":126,"w":420,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0001.png",
+	"frame": {"x":4295,"y":0,"w":369,"h":456},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":66,"y":135,"w":369,"h":456},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0002.png",
+	"frame": {"x":3933,"y":0,"w":361,"h":454},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":74,"y":137,"w":361,"h":454},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0003.png",
+	"frame": {"x":3231,"y":0,"w":352,"h":453},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":83,"y":138,"w":352,"h":453},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0004.png",
+	"frame": {"x":3584,"y":0,"w":348,"h":453},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":86,"y":138,"w":348,"h":453},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0005.png",
+	"frame": {"x":4665,"y":0,"w":346,"h":456},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":87,"y":135,"w":346,"h":456},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0006.png",
+	"frame": {"x":0,"y":440,"w":348,"h":461},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":88,"y":130,"w":348,"h":461},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0007.png",
+	"frame": {"x":349,"y":441,"w":350,"h":463},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":88,"y":128,"w":350,"h":463},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0008.png",
+	"frame": {"x":1044,"y":442,"w":354,"h":464},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":86,"y":127,"w":354,"h":464},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0009.png",
+	"frame": {"x":2147,"y":443,"w":357,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":84,"y":126,"w":357,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0010.png",
+	"frame": {"x":2505,"y":452,"w":360,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":81,"y":126,"w":360,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0011.png",
+	"frame": {"x":5258,"y":458,"w":362,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":125,"w":362,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0012.png",
+	"frame": {"x":346,"y":905,"w":364,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":79,"y":125,"w":364,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "i0013.png",
+	"frame": {"x":1036,"y":907,"w":364,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":79,"y":125,"w":364,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0000.png",
+	"frame": {"x":5621,"y":458,"w":349,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":76,"y":125,"w":349,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0001.png",
+	"frame": {"x":2866,"y":453,"w":347,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":78,"y":126,"w":347,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0002.png",
+	"frame": {"x":3214,"y":454,"w":346,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":79,"y":126,"w":346,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0003.png",
+	"frame": {"x":5971,"y":460,"w":345,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":125,"w":345,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0004.png",
+	"frame": {"x":0,"y":902,"w":345,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":125,"w":345,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0005.png",
+	"frame": {"x":1725,"y":909,"w":345,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":125,"w":345,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0006.png",
+	"frame": {"x":2071,"y":909,"w":345,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":125,"w":345,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0007.png",
+	"frame": {"x":2417,"y":918,"w":346,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":125,"w":346,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0008.png",
+	"frame": {"x":2764,"y":919,"w":346,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":125,"w":346,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0009.png",
+	"frame": {"x":700,"y":441,"w":343,"h":463},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":83,"y":128,"w":343,"h":463},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "l0010.png",
+	"frame": {"x":5972,"y":0,"w":346,"h":459},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":86,"y":132,"w":346,"h":459},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0000.png",
+	"frame": {"x":0,"y":0,"w":326,"h":438},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":116,"y":152,"w":326,"h":438},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0001.png",
+	"frame": {"x":5012,"y":0,"w":319,"h":456},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":132,"w":319,"h":456},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0002.png",
+	"frame": {"x":5332,"y":0,"w":318,"h":457},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":118,"y":131,"w":318,"h":457},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0003.png",
+	"frame": {"x":5651,"y":0,"w":320,"h":457},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":131,"w":320,"h":457},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0004.png",
+	"frame": {"x":5651,"y":0,"w":320,"h":457},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":131,"w":320,"h":457},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0005.png",
+	"frame": {"x":5651,"y":0,"w":320,"h":457},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":131,"w":320,"h":457},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0006.png",
+	"frame": {"x":5651,"y":0,"w":320,"h":457},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":131,"w":320,"h":457},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0007.png",
+	"frame": {"x":5651,"y":0,"w":320,"h":457},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":131,"w":320,"h":457},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0008.png",
+	"frame": {"x":5651,"y":0,"w":320,"h":457},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":131,"w":320,"h":457},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0009.png",
+	"frame": {"x":5651,"y":0,"w":320,"h":457},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":131,"w":320,"h":457},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "md0010.png",
+	"frame": {"x":5651,"y":0,"w":320,"h":457},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":117,"y":131,"w":320,"h":457},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0000.png",
+	"frame": {"x":3561,"y":454,"w":347,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":78,"y":126,"w":347,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0001.png",
+	"frame": {"x":3909,"y":455,"w":349,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":74,"y":125,"w":349,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0002.png",
+	"frame": {"x":4259,"y":457,"w":348,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":125,"w":348,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0003.png",
+	"frame": {"x":4259,"y":457,"w":348,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":125,"w":348,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0004.png",
+	"frame": {"x":4259,"y":457,"w":348,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":125,"w":348,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0005.png",
+	"frame": {"x":4259,"y":457,"w":348,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":125,"w":348,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0006.png",
+	"frame": {"x":4259,"y":457,"w":348,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":125,"w":348,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0007.png",
+	"frame": {"x":4259,"y":457,"w":348,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":125,"w":348,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0008.png",
+	"frame": {"x":4259,"y":457,"w":348,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":125,"w":348,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0009.png",
+	"frame": {"x":4259,"y":457,"w":348,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":125,"w":348,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "ml0010.png",
+	"frame": {"x":4259,"y":457,"w":348,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":125,"w":348,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0000.png",
+	"frame": {"x":1399,"y":442,"w":326,"h":464},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":133,"y":127,"w":326,"h":464},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0001.png",
+	"frame": {"x":4608,"y":457,"w":325,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":325,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0002.png",
+	"frame": {"x":4934,"y":457,"w":323,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0003.png",
+	"frame": {"x":4934,"y":457,"w":323,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0004.png",
+	"frame": {"x":4934,"y":457,"w":323,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0005.png",
+	"frame": {"x":4934,"y":457,"w":323,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0006.png",
+	"frame": {"x":4934,"y":457,"w":323,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0007.png",
+	"frame": {"x":4934,"y":457,"w":323,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0008.png",
+	"frame": {"x":4934,"y":457,"w":323,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0009.png",
+	"frame": {"x":4934,"y":457,"w":323,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mr0010.png",
+	"frame": {"x":4934,"y":457,"w":323,"h":465},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":465},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0000.png",
+	"frame": {"x":5669,"y":1403,"w":363,"h":490},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":107,"y":103,"w":363,"h":490},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0001.png",
+	"frame": {"x":2827,"y":1387,"w":351,"h":481},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":110,"w":351,"h":481},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0002.png",
+	"frame": {"x":2051,"y":1376,"w":348,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":124,"y":112,"w":348,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0003.png",
+	"frame": {"x":2051,"y":1376,"w":348,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":124,"y":112,"w":348,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0004.png",
+	"frame": {"x":2051,"y":1376,"w":348,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":124,"y":112,"w":348,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0005.png",
+	"frame": {"x":2051,"y":1376,"w":348,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":124,"y":112,"w":348,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0006.png",
+	"frame": {"x":2051,"y":1376,"w":348,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":124,"y":112,"w":348,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0007.png",
+	"frame": {"x":2051,"y":1376,"w":348,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":124,"y":112,"w":348,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0008.png",
+	"frame": {"x":2051,"y":1376,"w":348,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":124,"y":112,"w":348,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0009.png",
+	"frame": {"x":2051,"y":1376,"w":348,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":124,"y":112,"w":348,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "mu0010.png",
+	"frame": {"x":2051,"y":1376,"w":348,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":124,"y":112,"w":348,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0000.png",
+	"frame": {"x":6319,"y":0,"w":329,"h":463},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":133,"y":128,"w":329,"h":463},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0001.png",
+	"frame": {"x":5058,"y":925,"w":337,"h":468},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":132,"y":123,"w":337,"h":468},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0002.png",
+	"frame": {"x":4386,"y":923,"w":329,"h":467},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":132,"y":124,"w":329,"h":467},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0003.png",
+	"frame": {"x":6317,"y":464,"w":327,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":327,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0004.png",
+	"frame": {"x":711,"y":905,"w":324,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":324,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0005.png",
+	"frame": {"x":1401,"y":907,"w":323,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":323,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0006.png",
+	"frame": {"x":3111,"y":920,"w":322,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":322,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0007.png",
+	"frame": {"x":3434,"y":920,"w":322,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":322,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0008.png",
+	"frame": {"x":3434,"y":920,"w":322,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":125,"w":322,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0009.png",
+	"frame": {"x":3757,"y":921,"w":316,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":129,"y":125,"w":316,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "r0010.png",
+	"frame": {"x":4074,"y":923,"w":311,"h":466},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":125,"w":311,"h":466},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0001.png",
+	"frame": {"x":6033,"y":1408,"w":365,"h":490},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":110,"y":103,"w":365,"h":490},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0002.png",
+	"frame": {"x":5304,"y":1399,"w":364,"h":488},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":110,"y":104,"w":364,"h":488},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0003.png",
+	"frame": {"x":3179,"y":1387,"w":358,"h":487},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":110,"y":105,"w":358,"h":487},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0004.png",
+	"frame": {"x":3538,"y":1388,"w":354,"h":487},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":110,"y":105,"w":354,"h":487},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0005.png",
+	"frame": {"x":3893,"y":1390,"w":353,"h":487},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":110,"y":105,"w":353,"h":487},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0006.png",
+	"frame": {"x":4247,"y":1391,"w":352,"h":487},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":110,"y":105,"w":352,"h":487},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0007.png",
+	"frame": {"x":4600,"y":1391,"w":351,"h":487},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":111,"y":105,"w":351,"h":487},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0008.png",
+	"frame": {"x":4952,"y":1394,"w":351,"h":487},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":111,"y":105,"w":351,"h":487},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0009.png",
+	"frame": {"x":4952,"y":1394,"w":351,"h":487},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":111,"y":105,"w":351,"h":487},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0010.png",
+	"frame": {"x":0,"y":1369,"w":343,"h":478},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":113,"y":113,"w":343,"h":478},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "u0011.png",
+	"frame": {"x":4716,"y":923,"w":341,"h":467},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":105,"y":123,"w":341,"h":467},
+	"sourceSize": {"w":540,"h":675}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "starry_bf.png",
+	"format": "RGBA8888",
+	"size": {"w":6648,"h":1898},
+	"scale": "0.375",
+	"smartupdate": "$TexturePacker:SmartUpdate:a6ef3d81de54a9cb70ad1b72722bb5e1:141340edfa4f2d81b410a2abb00baed4:b8f1300ca61d1f6534b6abc2eae7b923$"
+}
+}

@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "starry_logo.png",
+	"frame": {"x":0,"y":0,"w":1189,"h":427},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":476,"y":11,"w":1189,"h":427},
+	"sourceSize": {"w":2133,"h":1200}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "starry_logo.png",
+	"format": "RGBA8888",
+	"size": {"w":1189,"h":427},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8f9fdf14f82b3ba9f24d16662a828c54:b134789ddbdb3b67c07be6361d5ed2e7:f61d644fede31c5744d5ad24a1fa1fae$"
+}
+}

@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "fog0000.png",
+	"frame": {"x":0,"y":0,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+{
+	"filename": "fog0001.png",
+	"frame": {"x":1281,"y":0,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+{
+	"filename": "fog0002.png",
+	"frame": {"x":2562,"y":0,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+{
+	"filename": "fog0003.png",
+	"frame": {"x":3843,"y":0,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+{
+	"filename": "fog0004.png",
+	"frame": {"x":5124,"y":0,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "fog.png",
+	"format": "RGBA8888",
+	"size": {"w":6404,"h":720},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d79a84f2a8dd157a9995db8480ca6c19:5a850a4a6cb472f75413091611dc25f2:16a9a0fee05771a3e2dc71e5c12de1fd$"
+}
+}

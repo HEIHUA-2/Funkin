@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "agglomerate_fog_1.png",
+	"frame": {"x":0,"y":0,"w":1600,"h":592},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":608,"w":1600,"h":592},
+	"sourceSize": {"w":2133,"h":1200}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "agglomerate_fog_1.png",
+	"format": "RGBA8888",
+	"size": {"w":1600,"h":592},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:fbeee6926054bea5d555b47018408eec:708aea8ca6e172b0a86218d6c8d0c5da:c34b545149d66c32c8d88fdb6db21a4f$"
+}
+}

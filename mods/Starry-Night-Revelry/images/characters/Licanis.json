@@ -1,0 +1,100 @@
+{"frames": [
+
+{
+	"filename": "0001_0.png",
+	"frame": {"x":2976,"y":0,"w":296,"h":533},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":139,"y":102,"w":296,"h":533},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0002_4.png",
+	"frame": {"x":2663,"y":0,"w":312,"h":534},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":132,"y":101,"w":312,"h":534},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0003_4.png",
+	"frame": {"x":2347,"y":0,"w":315,"h":537},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":132,"y":98,"w":315,"h":537},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0004_4.png",
+	"frame": {"x":1732,"y":0,"w":309,"h":538},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":139,"y":98,"w":309,"h":538},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0005_4.png",
+	"frame": {"x":2042,"y":0,"w":304,"h":538},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":140,"y":98,"w":304,"h":538},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0006_4.png",
+	"frame": {"x":1437,"y":0,"w":294,"h":539},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":141,"y":97,"w":294,"h":539},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0007_5.png",
+	"frame": {"x":1148,"y":0,"w":288,"h":540},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":142,"y":96,"w":288,"h":540},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0008_4.png",
+	"frame": {"x":863,"y":0,"w":284,"h":541},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":142,"y":95,"w":284,"h":541},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0009_4.png",
+	"frame": {"x":577,"y":0,"w":285,"h":542},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":143,"y":94,"w":285,"h":542},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0010_4.png",
+	"frame": {"x":289,"y":0,"w":287,"h":543},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":143,"y":93,"w":287,"h":543},
+	"sourceSize": {"w":540,"h":675}
+},
+{
+	"filename": "0011_4.png",
+	"frame": {"x":0,"y":0,"w":288,"h":543},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":143,"y":93,"w":288,"h":543},
+	"sourceSize": {"w":540,"h":675}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Licanis.png",
+	"format": "RGBA8888",
+	"size": {"w":3272,"h":543},
+	"scale": "0.75",
+	"smartupdate": "$TexturePacker:SmartUpdate:661b4a8084793f7409da4e651f80f8bc:07d59d54ae51fa11a022b97e3dddfab6:3daa88a09a0fae8af0b710f22af53bcb$"
+}
+}

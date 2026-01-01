@@ -1,0 +1,19 @@
+<!DOCTYPE codename-mod-credits>
+<menu name="Starry Night Revelry" desc="Credits for Starry Night Revelry (CodenameEngine)">
+	<!-- Core Development Team -->
+	<credit name="StarJump" desc="Lead mod creator, also the opponent character, drew some sprites and most animations" icon="Stella" size="125" url="https://space.bilibili.com/1337476419" portrait="false"/>
+	<credit name="Greay" desc="Composed most of the soundtrack" icon="Greay3T" size="125" url="https://space.bilibili.com/1941306913" portrait="false"/>
+	<credit name="Parite" desc="Designed the entire Freeplay mode, produced the 'Polar Day' song, and created the credits menu overlay graphics." icon="Parite" size="125" url="https://b23.tv/fxs7rfX" portrait="false"/>
+	<github user="HEIHUAa" customName="HeiHua" desc="Wrote nearly all the programming code, along with most of the charts" size="120"/>
+	<github user="Snowliy233" customName="Snowliy" desc="Provided conceptual contributions and coded the main menu" size="120"/>
+	
+	<!-- Art and Design -->
+	<credit name="GhostUser" desc="Created the most basic charts for both Phase 1 and Phase 2" icon="GhostUser" size="125" portrait="false"/>
+	<credit name="Licanis" desc="Scene and main menu artist" icon="Licanis" size="120" url="https://b23.tv/jYRWCgZ" portrait="false"/>
+	<credit name="RoiSe" desc="Drew the BF sprite" icon="RoiSe" size="125" url="https://b23.tv/5jdRxop" portrait="false"/>
+	<credit name="FG_animator" desc="Designed the in-game note visuals" icon="FG" size="125" url="https://space.bilibili.com/100723417" portrait="false"/>
+	
+	<!-- Special Thanks -->
+	<github user="FGGuaGua" customName="GuaGua" desc="Special Thanks!" size="120"/>
+	<credit name="YinLing" desc="Special Thanks!" size="120" icon="YinLing" url="https://space.bilibili.com/1987333973" portrait="false"/>
+</menu>

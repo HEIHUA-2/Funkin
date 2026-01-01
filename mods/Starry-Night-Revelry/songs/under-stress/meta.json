@@ -1,0 +1,15 @@
+{
+	"color": "#A7F8FF",
+	"customValues": {},
+	"opponentModeAllowed": true,
+	"icon": "stella",
+	"difficulties": [
+		"HARD"
+	],
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "under-stress",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"bpm": 150
+}

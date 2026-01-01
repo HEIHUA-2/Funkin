@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "light.PNG",
+	"frame": {"x":0,"y":0,"w":1006,"h":226},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":137,"y":247,"w":1006,"h":226},
+	"sourceSize": {"w":1280,"h":720}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "light.png",
+	"format": "RGBA8888",
+	"size": {"w":1006,"h":226},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:72c2ed8ac6481d8d3623c59b2a465709:8be907a3407e4cafc69c9b4ed51b9dca:667de6b72f41f892496969469aea341b$"
+}
+}

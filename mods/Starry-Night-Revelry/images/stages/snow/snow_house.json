@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "snow_house.png",
+	"frame": {"x":0,"y":0,"w":617,"h":840},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":66,"w":617,"h":840},
+	"sourceSize": {"w":617,"h":907}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "snow_house.png",
+	"format": "RGBA8888",
+	"size": {"w":617,"h":840},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:45d8765b2e8d6d4e6c90879ed8445a01:f0acad887d738e1c648e1b950cf54110:cf33ce1f7f89d1359fe61b1ae2c198c1$"
+}
+}

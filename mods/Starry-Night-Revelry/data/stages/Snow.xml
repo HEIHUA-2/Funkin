@@ -1,0 +1,19 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="0.7" folder="stages/snow">
+	<sprite name="sky" x="-800" y="-350" sprite="sky" zoomfactor="0.5" scroll="0.5"/>
+
+	<sprite name="snow" x="-800" y="-350" sprite="snow"/>
+	<sprite name="snow_house" x="-800" y="-350" sprite="snow_house"/>
+
+	<ratings x="400" y="300"/>
+
+	<gf x="-240" y="-100"/>
+	<dad x="-240" y="-100"/>
+	<boyfriend x="740" y="-75"/>
+
+	<sprite name="snow_drift" x="-825" y="-475" sprite="snow_drift" zoomfactor="1.1" scroll="1.1" scale="2" updateHitbox="true" antialiasing="true">
+		<property name="scale.x" type="float" value="2.2"/>
+		<property name="scale.y" type="float" value="2.2"/>
+	</sprite>
+	<sprite name="light" x="500" y="350" sprite="light" zoomfactor="0.6" scroll="0.8" scale="40"/>
+</stage>

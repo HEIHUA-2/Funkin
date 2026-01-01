@@ -1,0 +1,31 @@
+<!DOCTYPE codename-mod-options>
+<menu name="Starry Options" desc="Starry Night Revelry Mod Settings">
+	<menu name="UI Options" desc="Customize the visibility, position, and scale of interface elements to suit your playstyle or focus on the gameplay.">
+		<checkbox id="starry_middle_scroll" name="Middle Scroll" desc="Forces all notes to spawn at screen center."/>
+	</menu>
+
+	<menu name="Game Difficulty" desc="Adjust the challenge tier of game rules to balance your skill against the intensity of the experience.">
+		<checkbox id="starry_modchart" name="Mod Chart" desc="If you experience severe intermittent stuttering, try disabling this setting."/>
+		<checkbox id="starry_hurt_note" name="Hurt Note" desc="Disable all notes in the game that will be penalized when pressed."/>
+	</menu>
+
+	<menu name="Shader Quality" desc="You can boost your FPS by lowering the shader quality here.">
+		<number id="starry_snow_quality" name="Snow Quality" desc="Snow Quality affects the number of snowflakes. (Impact: Medium) (Value↗ FPS↘)" min="0" max="2" change="0.1"/>
+		<number id="starry_blur_max_quality" name="Blur Max Quality" desc="Limits the maximum number of samples for the blur effect. (Impact: Medium) (Value↗ FPS↘)" min="0" max="40" change="1"/>
+		<choice id="starry_VCR" name="VCR Shader" desc="Adjusting the VCR quality to 'Low' will use a faster method. (Impact: Low to Moderate)">
+			<value name="disable" value="disable"/>
+			<value name="low" value="low"/>
+			<value name="high" value="high"/>
+		</choice>
+		<choice id="starry_VCR_Note" name="VCR Note Shader" desc="Set the VCR quality for notes to Low to use the faster method. (Impact: Low to Moderate)">
+			<value name="disable" value="disable"/>
+			<value name="low" value="low"/>
+			<value name="high" value="high"/>
+		</choice>
+		<checkbox id="starry_mirror_wrap_transform" name="Mirror Wrap Transform" desc="Disable Mirror Wrap Transform Shader (Impact: Low)"/>
+	</menu>
+
+	<menu name="Debug Options" desc="debugs option">
+		<checkbox id="starry_debug" name="Debug Mode" desc="Debug is just like this."/>
+	</menu>
+</menu>

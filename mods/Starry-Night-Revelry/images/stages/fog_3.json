@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "fog_3.png",
+	"frame": {"x":0,"y":0,"w":1176,"h":603},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":262,"w":1176,"h":603},
+	"sourceSize": {"w":1350,"h":1000}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "fog_3.png",
+	"format": "RGBA8888",
+	"size": {"w":1176,"h":603},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:29e08744ad9007d78ad265c8abafa72e:29ff5b2587b8ea16cd2b162e7d208fc5:3681fa222e5d121631739629d8e2ed59$"
+}
+}

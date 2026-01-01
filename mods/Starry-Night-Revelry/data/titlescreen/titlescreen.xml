@@ -1,0 +1,47 @@
+<!DOCTYPE codename-titlestate >
+<titlestate>
+	<intro length="16">
+		<text beat="4">
+			<line text="ninjamuffin99" />
+			<line text="phantomArcade" />
+			<line text="kawaisprite" />
+			<line text="evilsk8er" />
+			<line text="presents" />
+		</text>
+
+		<text beat="6">
+			<introtext line="1" />
+			<introtext line="2" />
+		</text>
+
+		<text beat="8">
+			<line text="In association" />
+			<line text="with" />
+			<line text="Newgrounds" />
+			<sprite path="menus/titlescreen/newgrounds_logo" scale="0.8"/>
+		</text>
+
+		<text beat="10" />
+
+		<text beat="12">
+			<line text="Friday" />
+			<line text="Night" />
+			<line text="Funkin'" />
+		</text>
+
+		<text beat="14">
+			<line text="Friday" />
+			<line text="Night" />
+			<line text="Funkin'" />
+			<line text="Starry Night Revelry" />
+		</text>
+
+		<text beat="15">
+			<line text="Friday" />
+			<line text="Night" />
+			<line text="Funkin'" />
+			<line text="Starry Night Revelry" />
+			<line text="v0.5 (WIP)" />
+		</text>
+	</intro>
+</titlestate>

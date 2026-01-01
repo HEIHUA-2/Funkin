@@ -1,0 +1,15 @@
+{
+	"customValues": {},
+	"color": "#A7FBFF",
+	"opponentModeAllowed": true,
+	"icon": "stella",
+	"difficulties": [
+		"hard"
+	],
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "descent",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 200
+}

@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "star1.PNG",
+	"frame": {"x":0,"y":0,"w":1110,"h":547},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":82,"y":111,"w":1110,"h":547},
+	"sourceSize": {"w":1280,"h":720}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "star1.png",
+	"format": "RGBA8888",
+	"size": {"w":1110,"h":547},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a0ebb01cbf684af8ff21a626b70a0fbe:09ab3f6f90f9b2ccb0b976034ff4dd8e:4970014b50c9fff3526f9fa4e2e4e391$"
+}
+}

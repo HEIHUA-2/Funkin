@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "hit.png",
+	"frame": {"x":0,"y":0,"w":420,"h":123},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":26,"y":17,"w":420,"h":123},
+	"sourceSize": {"w":482,"h":160}
+},
+{
+	"filename": "normal.png",
+	"frame": {"x":0,"y":124,"w":416,"h":121},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":18,"w":416,"h":121},
+	"sourceSize": {"w":482,"h":160}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "starry_storymode.png",
+	"format": "RGBA8888",
+	"size": {"w":420,"h":245},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:cedcf8c6675c7dde7a3ef192d333637a:206d0acc6fce2943889eb624c2ee4b93:6d09fc8eb1d950e6a8b02ff4dcb6c70f$"
+}
+}

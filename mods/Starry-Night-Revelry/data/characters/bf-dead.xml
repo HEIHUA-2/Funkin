@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-character>
+<character y="350" sprite="starry_bf_die" flipX="true" isPlayer="true" icon="bf" color="#30B0D1" isGF="false" holdTime="8">
+	<anim name="firstDeath" anim="0" x="0" y="0" fps="10" loop="false" indices="1..34"/>
+	<anim name="deathLoop" anim="0" x="0" y="0" fps="15" loop="false" indices="35..54"/>
+	<anim name="deathConfirm" anim="0" x="0" y="0" fps="15" loop="false" indices="55..65"/>
+</character>

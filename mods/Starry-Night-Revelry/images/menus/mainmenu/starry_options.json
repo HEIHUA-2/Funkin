@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "hit.png",
+	"frame": {"x":0,"y":0,"w":621,"h":79},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":41,"y":25,"w":621,"h":79},
+	"sourceSize": {"w":690,"h":124}
+},
+{
+	"filename": "normal.png",
+	"frame": {"x":0,"y":80,"w":615,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":44,"y":27,"w":615,"h":76},
+	"sourceSize": {"w":690,"h":124}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "options.png",
+	"format": "RGBA8888",
+	"size": {"w":621,"h":156},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:059397c424235e87f9ab053184912ec3:ff90f6174701ff53aff0c8cf6f548b9b:407eccc63fe480e9a2a470d5f8cdadba$"
+}
+}

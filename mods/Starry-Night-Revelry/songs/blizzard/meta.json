@@ -1,0 +1,15 @@
+{
+	"customValues": {},
+	"color": "#A7F8FF",
+	"opponentModeAllowed": true,
+	"icon": "stella",
+	"difficulties": [
+		"hard"
+	],
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "blizzard",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"bpm": 165
+}

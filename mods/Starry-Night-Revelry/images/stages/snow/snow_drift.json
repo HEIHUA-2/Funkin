@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "snow_drift.png",
+	"frame": {"x":0,"y":0,"w":1280,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":464,"w":1280,"h":256},
+	"sourceSize": {"w":1280,"h":720}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "snow_drift.png",
+	"format": "RGBA8888",
+	"size": {"w":1280,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5305c0905b7a7d59724a28b8499d8632:8c84090def684a54cc6d4a13f5b9f409:8b500ed7abcc0535fae8b9ab67495d76$"
+}
+}

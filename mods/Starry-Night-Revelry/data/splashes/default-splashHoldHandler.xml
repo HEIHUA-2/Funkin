@@ -1,0 +1,23 @@
+<!DOCTYPE codename-engine-splashes>
+<splashes sprite="game/splashes/hold/default" alpha="1">
+	<strum id="0"> <!-- LEFT -->
+    <anim name="startleft" anim="holdp" fps="24" x="-26.5" y="2" loop="false" />
+    <anim name="holdingleft" anim="holdp" fps="24" x="-26.5" y="2" loop="true" />
+    <anim name="endleft" anim="holdendp" fps="24" x="-40" y="-30" loop="false" />
+	</strum>
+	<strum id="1"> <!-- DOWN -->
+    <anim name="startdown" anim="holdb" fps="24" x="-26.5" y="2" loop="false" />
+    <anim name="holdingdown" anim="holdb" fps="24" x="-26.5" y="2" loop="true" />
+    <anim name="enddown" anim="holdendb" fps="24" x="-40" y="-30" loop="false" />
+	</strum>
+	<strum id="2"> <!-- UP -->
+    <anim name="startup" anim="holdg" fps="24" x="-26.5" y="2" loop="false" />
+    <anim name="holdingup" anim="holdg" fps="24" x="-26.5" y="2" loop="true" />
+    <anim name="endup" anim="holdendg" fps="24" x="-40" y="-30" loop="false" />
+	</strum>
+	<strum id="3"> <!-- RIGHT -->
+    <anim name="startright" anim="holdr" fps="24" x="-26.5" y="2" loop="false" />
+    <anim name="holdingright" anim="holdr" fps="24" x="-26.5" y="2" loop="true" />
+    <anim name="endright" anim="holdendr" fps="24" x="-40" y="-30" loop="false" />
+	</strum>
+</splashes>

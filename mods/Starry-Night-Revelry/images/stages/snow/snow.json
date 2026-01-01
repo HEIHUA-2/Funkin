@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "snow.png",
+	"frame": {"x":0,"y":0,"w":2560,"h":773},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":667,"w":2560,"h":773},
+	"sourceSize": {"w":2560,"h":1440}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "snow.png",
+	"format": "RGBA8888",
+	"size": {"w":2560,"h":773},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8f24d718d36ccd725a03db9d6df7043d:41f20426027d51d59b7bfddca2e93b82:06a2c7225e748b9073bdcc44bcdfe832$"
+}
+}

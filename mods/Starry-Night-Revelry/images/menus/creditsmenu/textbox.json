@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "textbox.PNG",
+	"frame": {"x":0,"y":0,"w":1100,"h":720},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":88,"y":0,"w":1100,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "textbox.png",
+	"format": "RGBA8888",
+	"size": {"w":1100,"h":720},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e179771ebbf92fd411e870a82cb60bf2:e1b8464768526d42f958f193d031fe59:eb14d57eaa382adf286a930aa9457279$"
+}
+}
