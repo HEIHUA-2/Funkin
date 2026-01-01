@@ -43,6 +43,7 @@ function new() {
 
 	Flags.MOD_REDIRECT_STATES.set('TitleState', 'starry/TitleState');
 	Flags.MOD_REDIRECT_STATES.set('MainMenuState', 'starry/MainMenuInauguralState');
+	Flags.MOD_REDIRECT_STATES.set('StoryMenuState', 'starry/MainMenuInauguralState');
 	Flags.DEFAULT_MENU_MUSIC = 'snow';
 }
 

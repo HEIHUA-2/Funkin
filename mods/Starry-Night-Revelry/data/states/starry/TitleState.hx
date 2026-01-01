@@ -129,6 +129,7 @@ function postUpdate(elapsed:Float) {
 				stella.destroy();
 
 				Flags.MOD_REDIRECT_STATES.set('MainMenuState', 'starry/MainMenuState');
+				Flags.MOD_REDIRECT_STATES.set('StoryMenuState', 'starry/MainMenuState');
 				Flags.DEFAULT_MENU_MUSIC = 'freakyMenu';
 
 				FlxG.sound.music.destroy();

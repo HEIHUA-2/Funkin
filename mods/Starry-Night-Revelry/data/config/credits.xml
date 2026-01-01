@@ -5,7 +5,7 @@
 	<credit name="Greay" desc="Composed most of the soundtrack" icon="Greay3T" size="125" url="https://space.bilibili.com/1941306913" portrait="false"/>
 	<credit name="Parite" desc="Designed the entire Freeplay mode, produced the 'Polar Day' song, and created the credits menu overlay graphics." icon="Parite" size="125" url="https://b23.tv/fxs7rfX" portrait="false"/>
 	<github user="HEIHUAa" customName="HeiHua" desc="Wrote nearly all the programming code, along with most of the charts" size="120"/>
-	<github user="Snowliy233" customName="Snowliy" desc="Provided conceptual contributions and coded the main menu" size="120"/>
+	<credit name="snowliy" desc="Provided conceptual contributions and coded the main menu" icon="snowliy" size="125" portrait="false"/>
 	
 	<!-- Art and Design -->
 	<credit name="GhostUser" desc="Created the most basic charts for both Phase 1 and Phase 2" icon="GhostUser" size="125" portrait="false"/>

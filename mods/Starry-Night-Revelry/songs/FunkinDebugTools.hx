@@ -1,9 +1,9 @@
 import flixel.util.FlxColor;
 import haxe.Timer;
 
-var debugMode = FlxG.save.data.starry_debug;
+var debugMode = true;
 
-static var player_cpu:Bool = debugMode;
+static var player_cpu:Bool = FlxG.save.data.starry_debug;
 static var player_cpu_keys:Bool = player_cpu;
 
 var s;

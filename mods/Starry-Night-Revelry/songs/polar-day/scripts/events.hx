@@ -128,7 +128,6 @@ snowSprite.scale.set(FlxG.width, FlxG.height);
 snowSprite.updateHitbox();
 snowSprite.scrollFactor.set();
 snowSprite.zoomFactor = 0;
-snowSprite.alpha = 0;
 
 var snowShader = new SnowShader();
 snowShader.applyShader(snowSprite);
@@ -218,6 +217,7 @@ function onStartSong() {
 		blur_1.blur_size = [val, 0];
 		blur_2.blur_size = [0, val];
 	});
+	snowSprite.alpha = 0;
 }
 
 var w:Bool = true;
