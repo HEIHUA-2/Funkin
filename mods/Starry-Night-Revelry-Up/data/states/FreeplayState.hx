@@ -57,6 +57,8 @@ var analyzer = new AudioAnalyzer(FlxG.sound.music, audioLength);
 var samples;
 
 function postCreate() {
+	CoolUtil.playMenuSong();
+
 	bg.destroy();
 
 	for (icon in iconArray) icon.exists = icon.alive = false;
