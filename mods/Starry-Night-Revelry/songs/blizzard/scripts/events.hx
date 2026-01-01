@@ -48,7 +48,6 @@ function postCreate() {
 	colors2.cameras = [camOther];
 	add(colors2);
 
-	setDadHitHealth(0.01, 0.00333333333333333333, 0);
 	colors3 = new FunkinSprite(0, 0, Paths.image('stages/colorCorner'));
 	colors3.scale.set(40, 40);
 	colors3.updateHitbox();
@@ -71,6 +70,10 @@ function postCreate() {
 	colors2.alpha = 1;
 	
 	defaultCamZoom -= 0.05;
+
+	if (!PlayState.opponentMode && !PlayState.coopMode) cpu.onHit.add((e) -> {
+		e.healthGain = !e.note.isSustainNote ? 0.01 : 0.00333333333333333333;
+	});
 }
 
 

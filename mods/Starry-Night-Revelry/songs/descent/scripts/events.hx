@@ -20,8 +20,6 @@ function onPostStartCountdown() {
 
 
 function postCreate() {
-	setDadHitHealth(0.03, 0.01, 0.05);
-
 	colors2=new FunkinSprite(-100, -100).makeGraphic(1, 1, 0xff000000);
 	colors2.scale.set(1280 + 200, 720 + 200);
 	colors2.updateHitbox();
@@ -63,6 +61,15 @@ function postCreate() {
 	saturation.multiply = 2;
 	saturation.luminance_contrast = 1;
 	FlxG.camera.addShader(saturation);
+
+	if (!PlayState.opponentMode && !PlayState.coopMode) cpu.onHit.add((e) -> {
+		e.healthGain = !e.note.isSustainNote ? 0.03 : 0.01;
+		var predictedHealth = health - e.healthGain;
+		if (predictedHealth < 0.1 && health >= 0.1)
+			e.healthGain = health - 0.1;
+		else if (health < 0.1)
+			e.healthGain = 0;
+	});
 }
 
 

@@ -1,3 +1,14 @@
+function postCreate() {
+	if (!PlayState.opponentMode && !PlayState.coopMode) cpu.onHit.add((e) -> {
+		e.healthGain = !e.note.isSustainNote ? 0.02 : 0.01;
+		var predictedHealth = health - e.healthGain;
+		if (predictedHealth < 0.1 && health >= 0.1)
+			e.healthGain = health - 0.1;
+		else if (health < 0.1)
+			e.healthGain = 0;
+	});
+}
+
 event.createStep(576, () -> {
 	camZoomingInterval = 2;
 });
