@@ -148,7 +148,9 @@ function stepHit(step:Int) {
 		camData.offset.y = 60;
 	case 192:
 		camZoomingInterval = 1;
-		colors2.alpha = 0;
+		FlxTween.num(0, 0, Conductor.getMeasuresInTime(1, Conductor.curChangeIndex) * 0.001 * 0.37, {}, (val:Float) -> {
+			colors2.alpha = val;
+		});
 		flash(1, 0xffffffff, camBar, 1, 0);
 		camData.offset.x = 0;
 		camData.offset.y = 0;
@@ -373,7 +375,9 @@ function stepHit(step:Int) {
 	case 704:
 		camZoomingInterval = 114514;
 		vcrshader.amount = 0.1;
-		colors2.alpha=0;
+		FlxTween.num(0, 0, Conductor.getMeasuresInTime(1, Conductor.curChangeIndex) * 0.001 / 4 - 0.035, {ease:FlxEase.sineOut}, (val:Float) -> {
+			colors2.alpha = val;
+		});
 		flash(1, 0xffffffff, camBar, 1, 0);
 		setCamZoomMoment(1 - 0.05);
 		for (n => stage in stage.stageSprites)
