@@ -198,6 +198,18 @@ function postCreate() {
 	insert(members.indexOf(stage.stageSprites['snow_drift']), agglomerate_fog_2);
 
 	add(prospect_flash);
+
+	if (FlxG.save.data.starry_middle_scroll) {
+		var i = 0;
+		for (s in strumLines.members[2]) {
+			if (i < 2) {
+				s.x = 82 + i * 112;
+			} else {
+				s.x = FlxG.width - 309 + (i - 2) * 112;
+			}
+			i += 1;
+		}
+	}
 }
 
 function onStartSong() {
